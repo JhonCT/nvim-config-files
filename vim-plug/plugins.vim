@@ -11,14 +11,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'sheerun/vim-polyglot'
 	" File Explorer
 	Plug 'scrooloose/NERDTree'
-	" Auto pairs for '(' '[' '{'
+	" Auto pairs
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'machakann/vim-sandwich'
 	" Theme Gruvbox
-	Plug 'sainnhe/gruvbox-material'	
+	Plug 'sainnhe/gruvbox-material'
+	" Theme Sweet
+	Plug 'jschmold/sweet-dark.vim'
 	" Airline
-	Plug 'vim-airline/vim-airline'	
-	Plug 'vim-airline/vim-airline-themes'	
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 	" Coc
 	Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 	" fzf
@@ -33,6 +35,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Gitgutter
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
-
+	" Dart
+	Plug 'dart-lang/dart-vim-plugin'
+	Plug 'natebosch/vim-lsc'
+	Plug 'natebosch/vim-lsc-dart'
+	" EasyMotion
+	Plug 'easymotion/vim-easymotion'
+	
 call plug#end()
 
