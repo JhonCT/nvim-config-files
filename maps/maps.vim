@@ -1,6 +1,4 @@
-let mapleader = ","
-
-noremap <leader>w :w<cr>
+let mapleader = " "
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -110,3 +108,48 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
+
+" NERDTree
+nnoremap <leader>nt :NERDTreeFind<CR>
+
+" EasyMotion 
+nmap <leader>s <Plug>(easymotion-s2)
+
+" CocFlutter
+nnoremap <silent> <F5> :CocList --input=flutter commands<CR>
+
+" Custom
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+
+" Buffers
+nnoremap <silent> gb :<C-U>call <SID>GoToBuffer(v:count, 'forward')<CR>
+nnoremap <silent> gB :<C-U>call <SID>GoToBuffer(v:count, 'backward')<CR>
+
+function! s:GoToBuffer(count, direction) abort
+	if a:count == 0
+		if a:direction ==# 'forward'
+			bnext
+		elseif a:direction ==# 'backward'
+			bprevious
+		else
+			echoerr 'Bad argument ' a:direction
+		endif
+		return
+	endif
+	" Check the validity of buffer number
+	if index(s:GetBufNums(), a:count) == -1
+		echohl WarningMsg | echomsg 'Invalid bufnr: ' a:count | echohl None
+		return
+	endif
+
+	if a:direction ==# 'forward'
+		silent execute('buffer' . a:count)	
+	endif
+endfunction
+
+function! s:GetBufNums() abort
+	let l:buf_infos = getbufinfo({'buflisted':1})
+	let l:buf_nums = map(l:buf_infos, "v:val['bufnr']")
+	return l:buf_nums
+endfunction
