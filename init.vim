@@ -2,7 +2,16 @@ set number
 set relativenumber
 set termguicolors
 set background=dark
-syntax on
+set mouse=a
+set numberwidth=1
+set clipboard=unnamed
+syntax enable
+set showcmd
+set encoding=utf-8
+set showmatch
+set sw=2
+set laststatus=2
+set noshowmode
 
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/maps/maps.vim
